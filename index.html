@@ -26,6 +26,7 @@
       min-height: 100vh;
       display: grid;
       grid-template-rows: auto 1fr auto;
+      overflow-x: hidden;
     }
 
     /* ── NAV ── */
@@ -84,11 +85,12 @@
     }
 
     h1 {
-      font-size: clamp(64px, 8vw, 120px);
+      font-size: clamp(48px, 8vw, 120px);
       font-weight: 700;
       line-height: 0.95;
       letter-spacing: -4px;
       text-transform: uppercase;
+      text-wrap: balance;
     }
 
     h1 .line-above {
@@ -121,6 +123,7 @@
     .hero-cta {
       display: flex;
       gap: 0;
+      flex-wrap: wrap;
     }
 
     .btn-primary {
@@ -139,6 +142,7 @@
       cursor: pointer;
       transition: background 0s, color 0s;
       text-decoration: none;
+      touch-action: manipulation;
     }
 
     .btn-primary:hover {
@@ -162,6 +166,7 @@
       cursor: pointer;
       transition: background 0s, color 0s;
       text-decoration: none;
+      touch-action: manipulation;
     }
 
     .btn-secondary:hover {
@@ -319,13 +324,14 @@
       }
 
       .stat-block {
+        padding: 24px 20px;
         border-bottom: none;
         border-right: var(--border-w) solid var(--border);
       }
 
       .stat-block:last-child { border-right: none; }
 
-      .stat-num { font-size: 40px; }
+      .stat-num { font-size: 36px; letter-spacing: -2px; }
 
       .manifesto {
         grid-template-columns: 1fr;
@@ -340,6 +346,37 @@
       .manifesto-text { padding: 32px 20px; }
 
       footer { padding: 16px 20px; flex-direction: column; gap: 8px; text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: clamp(40px, 12vw, 64px); letter-spacing: -1.5px; }
+
+      .hero-left { gap: 32px; }
+
+      .hero-cta { flex-direction: column; }
+
+      .btn-primary,
+      .btn-secondary {
+        width: 100%;
+        justify-content: center;
+        border-left: 2px solid var(--black);
+      }
+
+      .btn-secondary { border-top: none; }
+
+      .hero-right {
+        flex-direction: column;
+      }
+
+      .stat-block {
+        border-right: none;
+        border-bottom: var(--border-w) solid var(--border);
+        padding: 20px 20px;
+      }
+
+      .stat-block:last-child { border-bottom: none; }
+
+      .stat-num { font-size: 40px; letter-spacing: -2px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -371,7 +408,7 @@
           <div class="hero-cta">
             <a href="#" class="btn-primary">
               Get Started
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
             <a href="#" class="btn-secondary">Learn More</a>
           </div>
