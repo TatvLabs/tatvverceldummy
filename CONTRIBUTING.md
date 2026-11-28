@@ -11,4 +11,4 @@ This documentation adopts the standard. Issue [#7](https://github.com/TatvLabs/t
 
 - [ ] For UI changes, reviewed all new and changed action controls against the [Homebase action-control standard](https://github.com/TatvLabs/homebase/blob/main/docs/standards/action-control-guidance.md).
 - [ ] Reviewed the current CTA semantics factually; do not infer a destination or action from href="#" alone.
-- [ ] For future implemented action controls, reviewed relevant state transitions so visible tooltip and action-based accessible name update together, and verified disabled/busy activation is blocked. Record only checks actually performed.
+- [ ] For future implemented action controls, verified next-action tooltip updates across states, action/disclosure names track the action, aria-pressed toggles keep stable names and expose pressed state, and disabled/busy activation is blocked. Record only checks actually performed.
